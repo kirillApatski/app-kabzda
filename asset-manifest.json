@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/app-kabzda/static/css/main.228dbdfc.css",
+    "main.js": "/app-kabzda/static/js/main.2e20a20d.js",
+    "static/media/pngwing.png": "/app-kabzda/static/media/pngwing.070f9d481aa731c4bbe9.png",
+    "index.html": "/app-kabzda/index.html",
+    "main.228dbdfc.css.map": "/app-kabzda/static/css/main.228dbdfc.css.map",
+    "main.2e20a20d.js.map": "/app-kabzda/static/js/main.2e20a20d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.228dbdfc.css",
+    "static/js/main.2e20a20d.js"
+  ]
+}
