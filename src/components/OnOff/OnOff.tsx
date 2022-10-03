@@ -1,37 +1,59 @@
-import React, {useState} from "react";
-import s from "./OnOff.module.css"
+import React, {useState} from 'react';
+
+type PropsType = {
+    on: boolean
+    // togle?: () => void
+    setOn: (value:boolean) => void
+}
 
 
+export const OnOff = (props: PropsType) => {
 
-export const OnOff = () => {
-    const [on, setOn] = useState(false);
+
 
     const onStyle = {
-        cursor: "pointer",
-        border: "solid 1px black",
-        width: "50px",
-        height: "50px",
-        backgroundColor: on ?  "green" : "white"
-    }
+        width: '30px',
+        height: '20px',
+        border: '1px solid black',
+        display: 'inline',
+        padding: '2px',
+        backgroundColor: props.on ? 'green' : 'white',
+        cursor: 'pointer'
+
+    };
     const offStyle = {
-        cursor: "pointer",
-        border: "solid 1px black",
-        width: "50px",
-        height: "50px",
-        backgroundColor: on ?  "white" : "red"
-    }
+        width: '30px',
+        height: '20px',
+        border: '1px solid black',
+        display: 'inline',
+        marginLeft: '2px',
+        padding: '2px',
+        backgroundColor: props.on ? 'white' : 'red',
+        cursor: 'pointer'
+
+
+    };
     const indicatorStyle = {
-        width: "50px",
-        height: "50px",
-        borderRadius: "50%",
-        backgroundColor: on ?  "green" : "red"
+        width: '10px',
+        height: '10px',
+        borderRadius: '5px',
+        border: '1px solid black',
+        display: 'inline-block',
+        marginLeft: '5px',
+        backgroundColor: props.on ? 'green' : 'red'
+
 
     }
+
     return (
-        <div className={s.wrapp}>
-            <div style={onStyle} onClick={() => setOn(true)}>on</div>
-            <div style={offStyle} onClick={() => setOn(false)}>off</div>
+        <div>
+            <div style={onStyle} onClick={() => {props.setOn(true)}}>On
+            </div>
+            <div style={offStyle} onClick={() => {props.setOn(false)}}>Off
+            </div>
             <div style={indicatorStyle}></div>
         </div>
-    )
-}
+    );
+};
+
+// export default OnOff;

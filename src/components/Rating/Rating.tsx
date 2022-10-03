@@ -1,26 +1,36 @@
-import React, {useState} from "react";
+import React from "react";
 
 
-export function Rating() {
-    const [value, setValue] = useState(0);
-    const onClickHandler = (id: number) => {
-        setValue(id)
-    }
+type RatingPropsType = {
+    value : valueType
+    onClick: (value:valueType) => void
+}
+
+export type valueType = 0 | 1 | 2 | 3 | 4 | 5
+
+export function Rating(props: RatingPropsType) {
+
     return (
         <div>
-            <div style={{display: "inline-block", cursor: "pointer"}}  onClick={() => onClickHandler(1)}><Star selected={value > 0}/></div>
-            <div style={{display: "inline-block", cursor: "pointer"}}  onClick={() => onClickHandler(2)}><Star selected={value > 1}/></div>
-            <div style={{display: "inline-block", cursor: "pointer"}}  onClick={() => onClickHandler(3)}><Star selected={value > 2}/></div>
-            <div style={{display: "inline-block", cursor: "pointer"}}  onClick={() => onClickHandler(4)}><Star selected={value > 3}/></div>
-            <div style={{display: "inline-block", cursor: "pointer"}}  onClick={() => onClickHandler(5)}><Star selected={value > 4}/></div>
-        </div>
-    )
+            <Star selected={props.value > 0} onClick={props.onClick} value={1}/>
+            <Star selected={props.value > 1} onClick={props.onClick} value={2}/>
+            <Star selected={props.value > 2} onClick={props.onClick} value={3}/>
+            <Star selected={props.value > 3} onClick={props.onClick} value={4}/>
+            <Star selected={props.value > 4} onClick={props.onClick} value={5}/>
+
+        </div>)
+
 }
 
-type  StarPropsType = {
+type PropsStarType = {
     selected: boolean
+    onClick: (value:valueType) => void
+    value: valueType
 }
 
-function Star(props: StarPropsType) {
-    return  props.selected ? <span><b>Star</b></span> : <span>Star</span>
+function Star(props: PropsStarType) {
+    const onClickSelected = () => {
+        props.onClick(props.value)
+    }
+    return <span onClick={onClickSelected}>{props.selected ? <b>star </b> : 'star '}</span>
 }
